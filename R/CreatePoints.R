@@ -33,6 +33,12 @@ proj4string(demographic)=CRS("+proj=longlat +datum=WGS84")
 #Change to NA no available data
 demographic@data$offyr[demographic@data$offyr==-9]<-NA
 demographic@data$dem_yrvill[demographic@data$dem_yrvill==-9]<-NA
+demographic@data$dem_pop[demographic@data$dem_pop==-9]<-NA
+demographic@data$dem_pop10[demographic@data$dem_pop10==-9]<-NA
+demographic@data$dem_in[demographic@data$dem_in==-9]<-NA
+demographic@data$dem_out[demographic@data$dem_out==-9]<-NA
+
+demographic<-na.omit(demographic)
 
 #Diff in population 
 demographic@data$dem_diff <- demographic@data$dem_pop - demographic@data$dem_pop10

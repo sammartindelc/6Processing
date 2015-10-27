@@ -7,7 +7,7 @@
 for (i in 1:25)
   {c <- country[i,1]
    jpeg(sprintf('results/histogram_%s.jpg', c))
-   hist(demographic$as.name(variable)[demographic$Country==c], xlab="Density change",
+   hist(demographic$offyr[demographic$Country==c], xlab="Density change",
         main=sprintf('Histogram %s', c))
    dev.off()
  
