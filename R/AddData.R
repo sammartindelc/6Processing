@@ -1,6 +1,6 @@
 #Master thesis Samantha MCM 
 #October 19, 2015.
-#Add data scriptThis: file will add all .cvs files into memory and it will create a data frame containing 
+#Add data script: This file will add all .cvs files into memory and it will create a data frame containing 
 #all relevant data using "gvillcode" as linking.
 
 #install library
@@ -27,5 +27,6 @@ wur_data <- read.xlsx("data/wur_data.xlsx",sheetIndex=1)
 demographic <- merge(wur_data, v1_a_geo[c("gvillcode", "offyr")], "gvillcode")
 demographic <- merge(demographic, v1_b_dem[c("gvillcode","dem_yrvill",
                                              "dem_pop","dem_pop10","dem_in","dem_out")], by="gvillcode")
-head(demographic)
-summary(demographic)
+#Get data with Dem_in information
+demographic$dem_in[demographic$dem_in==-9] <- NA
+demographic <- demographic[complete.cases(demographic),]
