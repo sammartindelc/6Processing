@@ -3,13 +3,9 @@
 #Plot data script
 
 #install library
-if(!require(rgdal))
-  install.packages("rgdal")
 library(rgdal)
-
-if(!require(plotGoogleMaps))
-  install.packages("plotGoogleMaps")
 library(plotGoogleMaps)
+library(maptools)
 
 ##Plot before coordinates
 #Using ggplot
@@ -26,6 +22,13 @@ spplot(demographic,zcol="offyr", xlim = bbox(demographic)[1, ]+c(-0.01,0.01), yl
        scales= list(draw = TRUE))
 #plotGoogle
 plotGoogleMaps(demographic, zcol="offyr")
+
+#Data in KLM 
+kmlPoints(demographic, kmlfile="data/demographic.kml",kmlname="Demographic",
+          icon="http://www.google.com/mapfiles/kml/paddle/wht-diamond.png")
+
+#Data in shape
+writeOGR(demographic, dsn = 'data/', layer = 'demographic', driver = "ESRI Shapefile")
 
 #Delete variables without use
 rm(map,mapPoints,mapWorld,mp)

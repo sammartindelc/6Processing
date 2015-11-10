@@ -21,17 +21,17 @@ tilesH <- list(c('00N','010E'),c('00N','020E'),c('00N','030E'),c('00N','110E'),c
 
 for( j in 1:length(tilesH)){
   download.hansen(tile=tilesH[[j]],data.type=c("lossyear"),
-                                              download.folder="C:/Users/Samantha/Documents/Samantha/Wageningen/Thesis/5DataLandCover/Hansen")
+                                              download.folder="C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/Hansen")
 }
 
 #download.modis(tile, data.year = c("2001"), download.folder = getwd())
-tilesM <- list("RQ1516","PN1516","ML2324","ML1920","KJ1920","PN2728",
+tilesM <- list("RQ1516","PN1718","ML2122","ML1920","KJ1920","PN2728",
                "PN2930","PN3132","PN3738","PN3536","ML3536","ML3334",
-               "KJ3536","RQ4344","RQ4142","RQ4546","RQ4748","PN4748",
+               "KJ3536","RQ4344","RQ4546","RQ4748","PN4748",
                "PN4950","ML4950","ML5152","ML1718")
 
 for( j in 1:length(tilesM)){
   download.modis(tile=tilesM[[j]],data.year=c("2001","2002","2003","2004","2005","2006","2007","2008","2009","2010"),
-                 download.folder="C:/Users/Samantha/Documents/Samantha/Wageningen/Thesis/5DataLandCover/ModisLC")
+                 download.folder="C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC")
 }
  rm(tilesM, tilesH, j)
