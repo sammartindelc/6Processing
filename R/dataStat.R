@@ -35,12 +35,12 @@ dataStat <- function(level="Country", name="Belize",func="hist", var="net_mig"){
     #Selects the variable 
     if (var=="net_mig"){
       jpeg(sprintf('output/plot_%s_%s.jpg', name, var))
-      plot(demographic$dem_pop,demographic$net_mig, xlab="Total population", ylab="Net Migration",
+      plot(data$dem_pop,data$net_mig, xlab="Total population", ylab="Net Migration",
            main=sprintf('Scatterplot %s %s', name, var))
       dev.off()} 
     else if (var=="rel_mig"){
       jpeg(sprintf('output/plot_%s_%s.jpg', name, var))
-      plot(demographic$dem_pop,demographic$rel_mig, xlab="Total population", ylab="Relative Migration",
+      plot(data$dem_pop,data$rel_mig, xlab="Total population", ylab="Relative Migration",
            main=sprintf('Scatterplot %s %s', name, var))
       dev.off()} 
     else { print ("Select other variable") }
