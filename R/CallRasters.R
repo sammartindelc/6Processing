@@ -1,30 +1,38 @@
 #Master thesis Samantha MCM 
 #October 30, 2015
-#Call rasters script:
+#Call rasters script: depending on dataset
 
 #Load library
 library(raster)
 library(rgdal)
 
 #Get Hansen data
-H_America <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/Hansen/All/H_America.tif")
-H_Africa <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/Hansen/All/H_Africa.tif")
-H_Asia <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/Hansen/All/H_Asia.tif")
+H_AmLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_Am.tif")
+H_AfLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_Af.tif")
+H_AsLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_As.tif")
+
+H_AmGain <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Gain/HGain_Am.tif")
+H_AfGain <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Gain/HGain_Af.tif")
+H_AsGain <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Gain/HGain_As.tif")
 
 #Get Modis data
-M_America <- brick("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/M_America.tif")
-M_Africa <- brick("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/M_Africa.tif")
-M_Asia <- brick("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/M_Asia.tif")
+M_AmForest <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeForest.tif")
+M_AmAgriculture <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeAgriculture.tif")
+M_AmUrban <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeUrban.tif")
+M_AmShrublands <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeShrublands.tif")
+M_AmSavana <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeSavana.tif")
+M_AmOtherVeg <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AmChangeOtherVeg.tif")
 
-# m1 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2001Asia.tif")
-# m2 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2002Asia.tif")
-# m3 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2003Asia.tif")
-# m4 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2004Asia.tif")
-# m5 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2005Asia.tif")
-# m6 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2006Asia.tif")
-# m7 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2007Asia.tif")
-# m8 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2008Asia.tif")
-# m9 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2009Asia.tif")
-# m10 <- raster("C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/Asia/2010Asia.tif")
-# mA <- brick(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10)
-# writeRaster(mA, filename = "C:/Users/Samantha/Documents/Samantha/Wageningen/ThesisLap/5DataLandCover/ModisLC/All/M_Asia.tif", format = "GTiff", overwrite = T, bandorder='BIL')
+M_AfForest <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeForest.tif")
+M_AfAgriculture <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeAgriculture.tif")
+M_AfUrban <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeUrban.tif")
+M_AfShrublands <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeShrublands.tif")
+M_AfSavana <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeSavana.tif")
+M_AfOtherVeg <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AfChangeOtherVeg.tif")
+
+M_AsForest <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeForest.tif")
+M_AsAgriculture <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeAgriculture.tif")
+M_AsUrban <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeUrban.tif")
+M_AsShrublands  <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeShrublands.tif")
+M_AsSavana <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeSavana.tif")
+M_AsOtherVeg <- raster("E:/Thesis/5DataLandCover/ModisLC/ChangeContinentTiles/AsChangeOtherVeg.tif")

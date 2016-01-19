@@ -14,13 +14,13 @@ name <- c("Belize","Bolivia","Ecuador","Brazil",
           "Bangladesh","China","India","Indonesia","Nepal","Vietnam","Cambodia",
           "Ethiopia","Malawi","Mozambique","Senegal","Ghana (Dry)", "Ghana (Wet)","Uganda","Zambia",
           "Burkina Faso", "Nigeria", "DRC")
-func <- c("hist","plot")
-val <- c("rel_mig", "net_mig")
+func <- c("plot")
+val <- c("net_mig")
 
 for( n in 1:length(name)){
   for (f in 1:length(func)){
     for (v in 1:length(val)){
-      dataStat("Continent",name[[n]],func[[f]],val[[v]]) #Change continent or country
+      dataStat("Country",name[[n]],func[[f]],val[[v]]) #Change continent or country
     }
   }
 }

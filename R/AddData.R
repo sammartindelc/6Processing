@@ -4,12 +4,7 @@
 #all relevant data using "gvillcode" as linking.
 
 #install library
-if(!require(gdata))
-  install.packages("gdata")
 library(gdata) 
-
-if(!require(xlsx))
-  install.packages("xlsx")
 library(xlsx) 
 
 #my_data <- read.csv("my_data.csv") Format to add data

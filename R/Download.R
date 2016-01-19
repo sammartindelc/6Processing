@@ -5,7 +5,7 @@
 #Download.hansen function, it takes the tile number and product type, search for the
 #url and save it in the desired directory
 download.hansen <- function(tile, data.type = c("loss"), download.folder = getwd()) {
-  hurl <- "https://storage.googleapis.com/earthenginepartners-hansen/GFC2015/Hansen_GFC2015"
+  hurl <- "http://commondatastorage.googleapis.com/earthenginepartners-hansen/GFC2013/Hansen_GFC2013"
   if (missing(tile)) 
     stop("Must define granule")
   for (i in 1:length(data.type)) {

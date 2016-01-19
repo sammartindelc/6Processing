@@ -26,9 +26,8 @@ plotGoogleMaps(demographic, zcol="offyr")
 #Data in KLM 
 kmlPoints(demographic, kmlfile="data/demographic.kml",kmlname="Demographic",
           icon="http://www.google.com/mapfiles/kml/paddle/wht-diamond.png")
-
 #Data in shape
-writeOGR(demographic, dsn = 'data/', layer = 'demographic', driver = "ESRI Shapefile")
+writeOGR(demographic, dsn = '.', layer = 'demographic', driver = "ESRI Shapefile")
 
 #Delete variables without use
 rm(map,mapPoints,mapWorld,mp)

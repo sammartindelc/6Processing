@@ -5,6 +5,7 @@
 
 #load libraries
 library(sp)
+library(xlsx)
 
 #Create SpatialPoints
 coordinates(demographic) = c("x", "y")
@@ -15,6 +16,20 @@ demographic@data$offyr[demographic@data$offyr==-9]<-NA
 demographic@data$dem_yrvill[demographic@data$dem_yrvill==-9]<-NA
 
 #Diff in population 
-demographic@data$Country_num <- as.numeric(demographic$Country)
+#demographic@data$Country_num <- as.numeric(demographic$Country)
 demographic@data$net_mig <- demographic@data$dem_in - demographic@data$dem_out
 demographic@data$rel_mig <- (demographic@data$net_mig / demographic@data$dem_pop)*100
+demographic@data$nat_pop <- demographic@data$dem_pop - demographic@data$dem_pop10 - demographic@data$net_mig
+demographic@data$diff_pop <- demographic@data$dem_pop - demographic@data$dem_pop10
+
+#Elevation
+demographic@data$MountE[demographic@data$elevation<=300] <- 0
+demographic@data$MountE[demographic$elevation>2500 & demographic$elevation<=3500] <- 3
+demographic@data$MountE[demographic$elevation>1500 & demographic$elevation<=2500] <- 4
+demographic@data$MountE[demographic$elevation>1000 & demographic$elevation<=1500] <- 5
+demographic@data$MountE[demographic$elevation>300 & demographic$elevation<=1000] <- 6
+demographic@data$radiusM[demographic$MountCond==F]<- 4000
+demographic@data$radiusM[demographic$MountCond==T]<- 5000
+
+#Export as .xmls
+write.xlsx(demographic, "E:/Thesis/5DataLandCover/xlsx/landCoverPEN.xlsx")
