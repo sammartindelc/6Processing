@@ -6,6 +6,7 @@
 #load libraries
 library(sp)
 library(xlsx)
+library(rgdal)
 
 #Create SpatialPoints
 coordinates(demographic) = c("x", "y")
@@ -13,10 +14,9 @@ proj4string(demographic)=CRS("+proj=longlat +datum=WGS84")
 
 #Change to NA no available data
 demographic@data$offyr[demographic@data$offyr==-9]<-NA
-demographic@data$dem_yrvill[demographic@data$dem_yrvill==-9]<-NA
 
 #Diff in population 
-#demographic@data$Country_num <- as.numeric(demographic$Country)
+demographic@data$Country_num <- as.numeric(demographic$Country)
 demographic@data$net_mig <- demographic@data$dem_in - demographic@data$dem_out
 demographic@data$rel_mig <- (demographic@data$net_mig / demographic@data$dem_pop)*100
 demographic@data$nat_pop <- demographic@data$dem_pop - demographic@data$dem_pop10 - demographic@data$net_mig
@@ -32,4 +32,5 @@ demographic@data$radiusM[demographic$MountCond==F]<- 4000
 demographic@data$radiusM[demographic$MountCond==T]<- 5000
 
 #Export as .xmls
-write.xlsx(demographic, "E:/Thesis/5DataLandCover/xlsx/landCoverPEN.xlsx")
+write.xlsx(demographic, "E:/Thesis/7Results/PEN_WUR.xlsx")
+writeOGR(demographic, dsn = '.', layer = 'demographic', driver = "ESRI Shapefile")

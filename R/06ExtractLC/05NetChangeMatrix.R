@@ -4,7 +4,8 @@
 
 #Call libraries
 library(raster)
-#landcover <- subset(demographic,demographic$Continent==demographic$Continent,select=c("gvillcode"))
+rm(corver)
+corver <- subset(demographic,demographic$Continent==demographic$Continent,select=c("gvillcode"))
 
 #subset demographic data according continent
 america <- subset(demographic,demographic$Continent=="America",select=c("gvillcode","radiusM"))
@@ -30,9 +31,8 @@ names(asia)<-c("gvillcode","radiusM","HchLost","HchGain")
 
 HchNet <- rbind(america,asia,africa)
 HchNet$radiusM <- NULL
-landcover <- merge(landcover, HchNet@data, "gvillcode")
+corver <- merge(corver, HchNet@data, "gvillcode")
 rm(america,asia,africa,HchNet)
-
 
 #subset demographic data according continent
 america <- subset(demographic,demographic$Continent=="America",select=c("gvillcode","radiusM"))
@@ -82,5 +82,5 @@ names(asia)<-c("gvillcode","radiusM","MchForest","MchAgriculture","MchUrban","Mc
 
 MchNet <- rbind(america,asia,africa)
 MchNet$radiusM <- NULL
-landcover <- merge(landcover, MchNet@data, "gvillcode")
+corver <- merge(corver, MchNet@data, "gvillcode")
 rm(america,asia,africa,MchNet)

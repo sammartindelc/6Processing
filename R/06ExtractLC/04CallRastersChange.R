@@ -9,7 +9,7 @@ library(rgdal)
 #Get Hansen data
 H_AmLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_Am.tif")
 H_AfLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_Af.tif")
-H_AsLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_As.tif")
+H_AfLost <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Loss/HLoss_As.tif")
 
 H_AmGain <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Gain/HGain_Am.tif")
 H_AfGain <- raster("E:/Thesis/5DataLandCover/Hansen/Continents/Gain/HGain_Af.tif")
